@@ -1,0 +1,7 @@
+.custom-file-label {
+    text-overflow: ellipsis;
+}
+
+.custom-file {
+    overflow: hidden;
+}

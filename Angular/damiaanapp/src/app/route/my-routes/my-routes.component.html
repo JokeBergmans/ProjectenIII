@@ -1,0 +1,63 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3">
+                <h1 class="titleText h1">
+                    Mijn routes
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="contentContainer">
+    <div *ngIf="routes$ | async as routes; else loadingOrError">
+        <div class="container" *ngIf='routes.length == 0; else routeContainer'>
+            <div class="row mt-5">
+                <div class="col d-flex flex-column justify-content-center align-items-center">
+                    <span>U heeft zich nog niet ingeschreven voor een wandelroute.</span>
+                    <a routerLink="/home">
+                        <button type="button" class="btn mt-3">Ga naar overzicht wandelroutes</button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <ng-template #routeContainer>
+            <div class="routeContainer container-flex" *ngFor='let route of routes' [Type]="Route">
+                <div class="row wandelroute">
+                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center leftDiv">
+                        <h1 class="h1">{{route.name}} - {{route.distance}} km</h1>
+                        <agm-map>
+                            <agm-kml-layer [url]="route.url"> </agm-kml-layer>
+                        </agm-map>
+                    </div>
+                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center rightDiv">
+                        <h2 class="datumRoute">{{route.start | date:'longDate'}}</h2>
+                        <p style="white-space: pre-line"> {{ route.info }}</p>
+                        <div class="d-flex justify-content-around w-100">
+                            <button (click)="showDetail(route.id)" type="button" class="btn">Details weergeven</button>
+                            <a routerLink="/pick-user/{{route.id}}">
+                                <button type="button" class="btn volg">Volg wandelaar</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #loadingOrError>
+    <mat-card data-cy="appError" class="error" *ngIf="errorMessage; else loading">
+        Error loading routes: {{ errorMessage }}. <br />
+        Please try again later.
+    </mat-card>
+</ng-template>
+<ng-template #loading>
+    <div class="row justify-content-center m-5">
+        <div class="spinnerContainer">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/myRoutesFragment">
+
+    <fragment
+        android:id="@+id/myRoutesFragment"
+        android:name="com.example.damiaanapp.UI.MyRoutesFragment"
+        android:label="@string/menuitem_routes"
+        tools:layout="@layout/fragment_my_routes">
+        <action
+            android:id="@+id/action_myRoutesFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.damiaanapp.UI.MapFragment"
+        android:label="Huidige route"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_mapFragment_to_qrScanFragment"
+            app:destination="@id/qrScanFragment" />
+        <argument
+            android:name="routeID"
+            app:argType="integer" />
+        <argument
+            android:name="kml"
+            app:argType="string" />
+        <!--        <argument-->
+<!--            android:name="route"-->
+<!--            app:argType="string" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/qrScanFragment"
+        android:name="com.example.damiaanapp.UI.QRscanActivity"
+        android:label="QR-scanner"
+        tools:layout="@layout/activity_q_rscan" />
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.damiaanapp.UI.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/sosFragment"
+        android:name="com.example.damiaanapp.UI.SosFragment"
+        android:label="Noodhulp"
+        tools:layout="@layout/fragment_sos" />
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="com.example.damiaanapp.UI.OptionsFragment"
+        android:label="Opties"
+        tools:layout="@layout/fragment_sos"
+        />
+</navigation>

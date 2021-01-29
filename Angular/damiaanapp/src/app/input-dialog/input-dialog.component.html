@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Enter route details</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+        (click)="closeDialog()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="form-group col-8">
+            <label for="route-name" class="col-form-label" >Route naam: </label>
+            <input type="text" class="form-control" id="route-name" [(ngModel)]="data.routeName" />
+        </div>
+        <div class="form-group col-4">
+            <label for="distance" class="col-form-label">Afstand in km: </label>
+            <input type="number" class="form-control" id="distance" [(ngModel)]="data.distance" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label for="datepicker" class="col-form-label" >Datum: </label>
+            <ngb-datepicker id="datepicker" [minDate]="today" #dp [(ngModel)]="data.start"></ngb-datepicker>
+        </div>
+        <div class="col">
+            <label for="timepicker" class="col-form-label" >Startuur: </label>
+            <ngb-timepicker class="col" id="timepicker" [(ngModel)]="data.startTime" [minuteStep]="minuteStep"></ngb-timepicker>
+        </div>
+    </div>
+    <label for="info" class="form-label mt-3" >Info :</label>
+    <textarea class="form-control" id="info" [(ngModel)]="data.info"></textarea>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary mr-auto" [mat-dialog-close]="false">
+        Cancel
+    </button>
+    <button type="button" class="btn btn-success" [disabled]="!data.routeName || !data.start || !data.startTime || !data.info" ngbAutofocus [mat-dialog-close]="data" >
+        Add
+    </button>
+</div>

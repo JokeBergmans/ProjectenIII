@@ -1,0 +1,46 @@
+<header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6 col-xl-5 d-flex justify-content-center align-items-center">
+                <div class="card" *ngIf="!isLoading; else loading">
+                    <div class="card-body">
+                      <h2 class="card-title">Inloggen</h2>
+                      <div *ngIf="errorMessage">
+                        <span class="errorSpan" style='display : hidden; color : red'>{{errorMessage}}</span>
+                    </div>
+                      <form [formGroup]="user" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <input mdbInput mdbValidate class="form-control" type="email" placeholder="e-mailadres"
+                                        formControlName="email" [ngClass]="{ 'is-invalid': user.controls.email.errors && user.controls.email.touched }"/>
+                                        <div *ngIf="user.controls.email.errors && user.controls.email.touched" class="invalid-feedback">
+                                            {{ getErrorMessage(user.controls.email.errors) }}
+                                        </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="password" placeholder="wachtwoord" formControlName="password" [ngClass]="{ 'is-invalid': user.controls.password.errors &&  user.controls.password.touched}" />
+                                <div *ngIf="user.controls.password.errors && user.controls.password.touched" class="invalid-feedback">
+                                    {{ getErrorMessage(user.controls.password.errors) }}
+                                </div>
+                            </div>
+                            <a>
+                                <button class="btn mr-3" type="submit" [disabled]="!user.valid">Log in</button>
+                            </a>
+                            <span>Nog geen account? 
+                                <a routerLink="/register" class="ml-1">Registreer hier</a>
+                            </span>
+                    </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+</header>
+
+<ng-template #loading>
+    <div class="row justify-content-center m-5">
+        <div class="spinnerContainer">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</ng-template>

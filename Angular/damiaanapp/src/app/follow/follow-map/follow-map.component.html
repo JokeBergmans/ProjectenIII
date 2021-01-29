@@ -1,0 +1,18 @@
+<div id="navbarPlaceholder"></div>
+
+<header>
+    <div class="contentContainer">
+        <div *ngIf="(route$ | async) else loading">
+            <div *ngIf="canBeFollowed else noFollow">
+                <span id="timestampSpan" class="h2 m-3">Locatie laatst geüpdate op : {{timestampLocation | date:'medium'}} </span>
+                <div (loaded)='setInitialMap()' id="map" class="map mt-2"></div>
+            </div>
+            <ng-template #noFollow>
+                <h2 class="m-3">Deze persoon heeft de volgfunctie uitgeschakeld of doet niet mee aan deze wandeling.</h2>
+            </ng-template>
+        </div>
+        <ng-template #loading>
+            <mat-spinner></mat-spinner>
+        </ng-template>
+    </div>
+</header>

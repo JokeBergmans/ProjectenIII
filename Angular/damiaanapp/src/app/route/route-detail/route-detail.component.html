@@ -1,0 +1,44 @@
+<div id="navbarPlaceholder"></div>
+
+
+<div class="contentContainer">
+    <div *ngIf="route$ | async as route; else loadingOrError">
+        <div class="row justify-content-center mt-3">
+            <h1 class="display-4">Details voor {{route.name}}  -  {{route.distance}} km</h1>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <agm-map>
+                <agm-kml-layer [url]="route.url"> </agm-kml-layer> 
+                <agm-marker *ngFor="let n of nodes$ | async" 
+                    [latitude]="n.latitude" 
+                    [longitude]="n.longitude">
+                    <agm-info-window>
+                        {{ n.info }}
+                    </agm-info-window>
+                </agm-marker>
+            </agm-map>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Start?&nbsp;</b> {{ route.start | date:'fullDate' }}</li>
+                    <li class="list-group-item"><b>Afstand?&nbsp;</b> {{ route.distance }} km</li>
+                    <li class="list-group-item"><b>Uw volgnummer?&nbsp;</b>{{registrationId}}</li>
+                  </ul>
+            </div>        
+        </div>
+    </div>
+    <ng-template #loadingOrError>
+        <mat-card data-cy="appError" class="error" *ngIf="errorMessage; else loading">
+          Error loading routes: {{ errorMessage }}. <br />
+          Please try again later.
+        </mat-card>
+      </ng-template>
+      <ng-template #loading>
+        <div class="row justify-content-center m-5">
+            <div class="spinnerContainer">
+                <mat-spinner></mat-spinner>
+            </div>
+        </div> 
+    </ng-template>
+</div>

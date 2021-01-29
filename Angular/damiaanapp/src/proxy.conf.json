@@ -1,0 +1,12 @@
+{
+    "/api": {
+      "target": {
+        "host": "https://damiaanapp-api20201029173559.azurewebsites.net/api",
+        "protocol": "https:",
+        "port": 443
+      },
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "info"
+    }
+  }

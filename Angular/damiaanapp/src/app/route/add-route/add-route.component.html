@@ -1,0 +1,70 @@
+<div id="navbarPlaceholder"></div>
+<div *ngIf="showSucces"class="alert alert-success m-2" role="alert">
+    {{ succesMessage }}
+</div>
+<div *ngIf="showError"class="alert alert-danger m-2" role="alert">
+  {{ errorMessage }}
+</div>
+<h1 class="h1">Route toevoegen</h1>
+<app-add-file (routeData)="setRouteData($event)" ></app-add-file>
+<div class="row m-2" id="mapTableContainer">
+  <div class="col-lg-5 p-0" id="map"> </div>
+  <div class="col-lg-7" id="infoTable">
+    <table class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <th style="width: 40%">Adres</th>
+        <th style="width: 45%">Info</th>
+        <th style="width: 15%;"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of markers">
+          <td class="align-middle">{{ m.displayAddress() }}</td>
+          <td class="align-middle" *ngIf="m.label !== undefined; else inputLabel">{{ m.label }}</td>
+          <ng-template #inputLabel>
+            <td>
+              <div class="row m-2">
+                <input
+                  class="col"
+                  #newLabel
+                  type="text"
+                  placeholder="Informatie toevoegen"
+                />
+                <button
+                  type="button"
+                  class="btn btn-secondary ml-2"
+                  (click)="addLabel(newLabel.value, m)"
+                >
+                  Voeg toe
+                </button>
+              </div>
+            </td>
+          </ng-template>
+          <td class="align-middle">
+            <div class="btn-toolbar" role="toolbar">
+              <div class="btn-group mr-2" role="group">
+                <button type="button" class="btn btn-secondary" *ngIf="m.label !== undefined || m.label === ''" (click)="clearLabel(m)">
+                  <i class="fa fa-undo fa-lg"></i> 
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="col btn btn-danger" (click)="deleteMarker(m)">
+                  <i class="fa fa-trash-o fa-lg"></i>
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-danger m-2" (click)="deleteRoute()">Verwijder route</button>
+              <div>
+                <button type="button" class="btn btn-dark m-2" (click)="saveRoute()">Opslaan</button>
+              </div>
+            </div> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

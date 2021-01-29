@@ -1,0 +1,28 @@
+<header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6 col-xl-5 d-flex justify-content-center align-items-center">
+                <div class="card">
+                    <div class="card-body">
+                      <form [formGroup]="idGroup" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label>Geef het volgnummer in</label>
+                                <input class="form-control" type="number" placeholder="Voorbeeld: 46" 
+                                        formControlName="followId" [ngClass]="{ 'is-invalid': idGroup.controls.followId.errors && idGroup.controls.followId.touched }"/>
+                            </div>
+                            <div style="color : red" *ngIf="f.followId?.errors?.required && f.followId?.touched">
+                                Dit veld kan niet leeggelaten worden.
+                              </div>
+                            <div *ngIf="errorMessage">
+                                <span class="errorSpan" style='display : hidden; color : red'>{{errorMessage}}</span>
+                            </div>
+                            <a>
+                                <button class="btn" type="submit" [disabled]="!idGroup.valid">Locatie ophalen</button>
+                            </a>
+                    </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</header>

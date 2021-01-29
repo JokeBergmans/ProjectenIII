@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="damiaanapp_API.Models.Domain.Route">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAACAAAAAAAABAAAQAAAAAAABAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Domain\Route.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Nodes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="damiaanapp_API.Models.Domain.Registration">
+    <Position X="9.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAgAEACAAAAAAAAAAAAADAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Registration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Participant" />
+      <Property Name="Route" />
+      <Property Name="Position" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="damiaanapp_API.Models.Domain.Participant">
+    <Position X="12.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Participant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="damiaanapp_API.Models.Domain.Node">
+    <Position X="6.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAABAAIIEAAAAAAAAAAAAAAAAIAAAAAAAE=</HashCode>
+      <FileName>Models\Domain\Node.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Coordinate" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="damiaanapp_API.Models.Domain.Coordinate">
+    <Position X="9.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Coordinate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,71 @@
+<header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6 col-xl-5 d-flex justify-content-center align-items-center">
+                <div class="card" *ngIf="!isLoading; else loading">
+                    <div class="card-body">
+                      <h2 class="card-title">Registeren</h2>
+                      <div *ngIf="errorMessage">
+                        <span class="errorSpan" style='display : hidden; color : red'>{{errorMessage}}</span>
+                    </div>
+                      <form [formGroup]="user" (ngSubmit)="onSubmit()">
+                          <div class="form-group">
+                            <input class="form-control" type="text" placeholder="voornaam" formControlName="firstname" [ngClass]="{ 'is-invalid': user.controls.firstname.errors && user.controls.firstname.touched }"/>
+                            <div *ngIf="user.controls.firstname.errors && user.controls.firstname.touched" class="invalid-feedback">
+                                {{ getErrorMessage(user.controls.firstname.errors) }}
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <input class="form-control" type="text" placeholder="naam" formControlName="lastname" [ngClass]="{ 'is-invalid': user.controls.lastname.errors && user.controls.lastname.touched}" />
+                            <div *ngIf="user.controls.lastname.errors && user.controls.lastname.touched" class="invalid-feedback">
+                                {{ getErrorMessage(user.controls.lastname.errors) }}
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <input class="form-control" type="email" placeholder="e-mailadres" aria-label="email" formControlName="email" [ngClass]="{ 'is-invalid': user.controls.email.errors && user.controls.email.touched }"/>
+                            <div *ngIf="user.controls.email.errors && user.controls.email.touched" class="invalid-feedback">
+                                {{ getErrorMessage(user.controls.email.errors) }}
+                            </div>
+                        </div>
+                        <div class="form-group" formGroupName='passwordGroup'>
+                            <input class="form-control" type="password" placeholder="wachtwoord" formControlName="password" [ngClass]="{ 'is-invalid': user.get('passwordGroup').get('password').errors && user.get('passwordGroup').get('password').touched}"/>
+                            <div *ngIf="user.get('passwordGroup').get('password').errors && user.get('passwordGroup').get('password').touched" class="invalid-feedback">
+                                {{ getErrorMessage(user.controls.passwordGroup.get('password').errors) }}
+                            </div>
+                            <input class="form-control mt-3" type="password" placeholder="bevestig wachtwoord" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': user.get('passwordGroup').get('confirmPassword').errors && user.get('passwordGroup').get('confirmPassword').touched || user.get('passwordGroup').errors}"/>
+                            <div *ngIf="user.get('passwordGroup').get('confirmPassword').errors && user.get('passwordGroup').get('confirmPassword').touched" class="invalid-feedback">
+                                {{ getErrorMessage(user.controls.passwordGroup.get('confirmPassword').errors) }}
+                            </div>
+                            <div *ngIf="user.get('passwordGroup').errors &&
+                            user.get('passwordGroup').get('confirmPassword').touched &&
+                            user.get('passwordGroup').get('password').touched" class="invalid-feedback">
+                            {{ getErrorMessage(user.get('passwordGroup').errors) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label >Kies je geboortedatum</label>
+                            <input type="date"  formControlName="birthDate" max="2021-01-01" 
+                            min="1000-01-01" class="form-control" [ngClass]="{ 'is-invalid': user.controls.birthDate.errors && user.controls.birthDate.touched}">
+                            <div *ngIf="user.controls.birthDate.errors && user.controls.birthDate.touched" class="invalid-feedback">
+                                {{ getErrorMessage(user.controls.birthDate.errors) }}
+                            </div>
+                        </div>
+                        <a>
+                            <button class="btn" type="submit" [disabled]="!user.valid">Registreer</button>
+                        </a>
+                    </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<ng-template #loading>
+    <div class="row justify-content-center m-5">
+        <div class="spinnerContainer">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</ng-template>

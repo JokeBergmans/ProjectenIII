@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">DamienApp</string>
+    <string name="button_scanQR">Scanner le code QR</string>
+    <string name="button_QRCodes">Codes QR</string>
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="textview_huidigRoute"><u>Itinéraire actuel</u></string>
+    <string name="menuitem_routes">Itinéraires</string>
+    <string name="menuitem_sos">Numéros d\'urgence</string>
+    <string name="menuitem_contact">Contact</string>
+    <string name="contact_phone">+32 2 422 59 11</string>
+    <string name="contact_email">info@damiaanactie.be</string>
+    <string name="sos_call_em">Centrale électrique de secours</string>
+    <string name="sos_call">Helpdesk Fondation Damien</string>
+    <string name="login">S\'identifier</string>
+    <string name="logout">Se déconnecter</string>
+    <string name="email">adresse e-mail</string>
+    <string name="password">mot de passe</string>
+    <string name="no_account">Pas encore de compte?</string>
+    <string name="register">S\'inscrire maintenant</string>
+    <string name="route">Route</string>
+    <string name="options">Options</string>
+    <string name="tracking_option">Permettre à tout le monde de suivre mes progrès</string>
+    <string name="account_image">Image du compte</string>
+    <string name="card_route_image">Image de l\'itinéraire de la carte</string>
+    <string name="nl">nl</string>
+    <string name="fr">fr</string>
+    <string name="invalid_login_request">Tentative de connexion non valide: Erreur</string>
+    <string name="lang_already_selected">Cette langue a déjà été définie</string>
+    <string name="text_language">Langue</string>
+    <string name="title_Nodes">Nœuds</string>
+    <string name="preferences_message">Votre préférence a été enregistrée</string>
+    <string name="updated_location">Votre emplacement a été mis à jour avec succès</string>
+    <string name="invalid_qr_code">Ce n\'est pas un code QR valide</string>
+    <string name="error">Un problème est survenu</string>
+    <string name="no_data_available">Vous n\'êtes pas encore inscrit pour un itinéraire. Inscrivez-vous sur <a href="https://evening-hamlet-46004.herokuapp.com/en-US/">Notre site Web</a></string>
+</resources>

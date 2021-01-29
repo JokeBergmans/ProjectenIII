@@ -1,0 +1,271 @@
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@font-face {
+  font-family: Akkurat;
+  src: url(assets/fonts/FontsFree-Net-Akkurat.ttf)
+}
+
+html, body {
+  font-family: Akkurat, Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: white;
+}
+
+
+/* for sidenav to take a whole page */
+html, body { 
+  margin: 0;
+  height: 100%;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #fe0040 !important;
+}
+
+
+.navbar {
+    .login {
+        .navbar-text {
+            color: black;
+            margin-right: 2rem;
+        }
+    }
+
+    a .btn:hover {
+        text-decoration: underline;
+        color: white !important;
+    }
+
+    .nav-link:hover, a:hover {
+        color: black !important;
+        text-decoration: none;
+    }
+
+}
+
+#navbarPlaceholder {
+    height: 70px;
+    width: 100%;
+}
+
+app-welcome, app-my-routes, app-header, app-login, app-register, app-register-route, app-pick-user  {
+    .btn {
+        border : none;
+        background-color: #fe0040;
+        color: white;
+        padding : 10px 15px;
+        border-radius: 40px;
+        &:hover {
+            color: white !important;
+            text-decoration: underline;
+        }
+        &:disabled:hover {
+            text-decoration: none;
+        }
+    }   
+}
+
+app-welcome,  app-my-routes {
+    header {
+        position: relative;
+        background: url('https://damiaanactie.be/wp-content/uploads/2019/03/bg-evenements.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 18rem 0;
+        display: block;
+    }
+
+    .titleText {
+        color: #fff;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+        font-family : Akkurat;
+        font-weight: bold;
+    }
+    .routeContainer:nth-child(odd) {
+        background: white;
+    }
+    .routeContainer:nth-child(even) {
+        background: #f1f2ef;
+    }
+    .routeContainer .wandelroute {
+        min-height: 50vh;
+        
+        .leftDiv {
+            
+            h1 {
+                color : #212529;
+                font-size : 2rem;
+                font-family: Akkurat;
+                margin: 2rem;
+            }
+            
+            agm-map {
+                height: 100%; 
+                width: 95%;
+                margin-left: 3rem;
+                margin-bottom: 1rem;
+            }
+
+        }
+        .rightDiv {
+            .datumRoute {
+                color : #fe0040;
+                font-size: 1.8rem;
+                font-family: Akkurat;
+            }
+            p {
+                font-family: 'Akkurat';
+                font-weight : 200;
+                color : #212529;
+                font-size: 1rem;
+                margin: 2rem;
+            }
+
+        }
+    }
+}
+
+app-login, app-register, app-register-route, app-pick-user {
+    header {
+        position: relative;
+        height: 100vh;
+        display: block;
+        padding: 30vh 0;
+        a {
+            color: #fe0040;
+            font-weight: bold; 
+            &:hover {
+                color: #fe0040;
+            }
+        }
+    }
+
+    .card {
+        width: 100%;
+        background-color: rgba(255,255,255,0.8);
+    }
+}
+
+app-login {
+    header {
+        background: url('https://damiaanactie.be/wp-content/uploads/2019/11/2019-STEFANNE-PRIJOT-NEPAL-1.jpg') no-repeat center center;
+        background-size: cover;
+    }
+
+}
+
+app-register {
+    header {
+        background: url('https://damiaanactie.be/wp-content/uploads/2019/07/nigeria-tuberculosis-volunteers.jpg') no-repeat center center;
+        background-size: cover;
+    }
+}
+
+app-register-route {
+    header {
+        background: url('https://damiaanactie.be/wp-content/uploads/2019/11/DE-TESSIERES-Comores.jpg') no-repeat center center;
+        background-size: cover;
+    }
+}
+
+app-pick-user {
+    header {
+        background: url('https://damiaanactie.be/wp-content/uploads/2019/03/bg-evenements.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 35vh 0;
+    }
+
+}
+
+app-add-route {
+
+
+    h1 {
+        margin-left: 1rem;
+    }
+    
+    #map {
+        height: 100%;
+        width: 100%;
+    }
+    
+    #mapTableContainer {
+        height: 700px;
+    }
+    
+    #infoTable {
+        float: left;
+        height: 100%;
+        border-collapse: collapse;
+
+    }
+    
+    .td {
+        vertical-align: middle;
+    }
+    
+    .filerow {
+        align-items: center !important;
+    }
+    
+    td {
+        background-color: white;
+    }
+}
+
+app-follow-map {
+    span{
+        display:block;
+        color:black;
+        font-size: 2.5vw;
+        text-align: center;
+
+    }
+    .map {
+        margin-left:auto;
+        margin-right: auto;
+        height : 550px;
+        width : 80%;
+        background: black;
+        display: block;       
+    }
+}
+
+app-not-found {
+    a {
+        color: #fe0040;
+        font-weight: bold; 
+        &:hover {
+            color: #fe0040;
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+
+    #infoTable {
+        margin-top: 1rem;
+
+    }
+    
+}
+
+@media (max-width: 768px) {
+
+    .routeContainer .wandelroute {
+        min-height: 100vh !important;
+    }
+
+
+
+    app-register {
+        header {
+            padding: 15vh 0;
+        }
+    }
+}
+
+
+

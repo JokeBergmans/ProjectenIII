@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">DamiaanApp</string>
+    <string name="button_scanQR">Scan QR-code</string>
+    <string name="button_QRCodes">QR-codes</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textview_huidigRoute"><u>Huidige route</u></string>
+    <string name="menuitem_routes">Routes</string>
+    <string name="menuitem_sos">Nood</string>
+    <string name="menuitem_contact">Contact</string>
+    <string name="contact_phone">+32 2 422 59 11</string>
+    <string name="contact_email">info@damiaanactie.be</string>
+    <string name="sos_call_em">Noodcentrale</string>
+    <string name="sos_call">Helpdesk Damiaanactie</string>
+    <string name="login">Inloggen</string>
+    <string name="logout">Uitloggen</string>
+    <string name="email">e-mailadres</string>
+    <string name="password">wachtwoord</string>
+    <string name="no_account">Nog geen account?</string>
+    <string name="register">Registreer nu</string>
+    <string name="route">Route</string>
+    <string name="options">Opties</string>
+    <string name="tracking_option">Toestaan dat iedereen mijn vooruitgang kan volgen</string>
+    <string name="account_image">Account Image</string>
+    <string name="card_route_image">Card route image</string>
+    <string name="nl">nl</string>
+    <string name="fr">fr</string>
+    <string name="invalid_login_request">Ongeldige login poging: Error </string>
+    <string name="lang_already_selected">Deze taal is al ingesteld</string>
+    <string name="text_language">Taal</string>
+    <string name="title_Nodes">Knooppunten</string>
+    <string name="preferences_message">Uw voorkeur werd opgeslagen.</string>
+    <string name="updated_location">Uw locatie werd succesvol geüpdatet</string>
+    <string name="invalid_qr_code">Dit is geen geldige QR-code</string>
+    <string name="error">Er is iets fout gelopen</string>
+    <string name="no_data_available">U ben nog niet ingeschreven voor een route. Schrijf u in op <a href="https://evening-hamlet-46004.herokuapp.com/en-US/">Onze website</a></string>
+</resources>

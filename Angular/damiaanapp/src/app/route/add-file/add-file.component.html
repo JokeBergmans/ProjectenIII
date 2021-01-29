@@ -1,0 +1,28 @@
+<div class="row m-2 justify-content-start">
+  <div class="col-lg-5 p-0">
+    <div class="input-group">
+      <div class="custom-file">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="myInput"
+          aria-describedby="myInput"
+          (change)="handleFileInput($event.target.files)"
+          accept=".kml"
+        />
+        <label class="custom-file-label" id="fileLabel" for="myInput">Voeg een kml-bestand toe</label>
+      </div>
+      <div class="input-group-append">
+        <button
+          class="btn btn-dark"
+          type="button"
+          id="myInput"
+          [disabled]="buttonDisabled"
+          (click)="openDialog()"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

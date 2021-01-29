@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/routesFragment"
+        android:icon="@drawable/map"
+        android:title="@string/menuitem_routes" />
+    <item
+        android:id="@+id/sosFragment"
+        android:icon="@drawable/warning"
+        android:title="@string/menuitem_sos" />
+    <item
+        android:id="@+id/contactFragment"
+        android:icon="@drawable/contact"
+        android:title="@string/menuitem_contact" />
+    <item
+        android:id="@+id/optionsFragment"
+        android:icon="@drawable/gear_option"
+        android:title="@string/options" />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        android:title="@string/logout" />
+</menu>

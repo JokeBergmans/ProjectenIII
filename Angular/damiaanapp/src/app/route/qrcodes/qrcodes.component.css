@@ -1,0 +1,16 @@
+#spacer {
+    height: 150px;
+    width: 100%;
+}
+
+.qrcontainer {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.qrblock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

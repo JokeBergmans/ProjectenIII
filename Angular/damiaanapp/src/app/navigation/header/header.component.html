@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/home">
+        <img width="160" alt="Damiaanactie logo" src="../assets/images/logo.png" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Wandelroutes</a>
+        </li>
+        <li *ngIf="(loggedInUser$ | async) && role== 'customer'">
+            <a class="nav-link" routerLink='/my-routes'>Mijn routes</a>
+        </li>
+        <li *ngIf="(loggedInUser$ | async) && role == 'admin'">
+            <a class="nav-link" routerLink="/addRoute">Route toevoegen</a>
+        </li>
+        <li *ngIf="(loggedInUser$ | async) && role == 'admin'">
+          <a class="nav-link" routerLink="/routes/list">Route lijst</a>
+        </li>
+        <li *ngIf="(loggedInUser$ | async) && role == 'admin'">
+          <a class="nav-link" routerLink="/participants/list">Deelnemers</a>
+        </li>
+      </ul>
+      <div class="d-flex login" *ngIf="(loggedInUser$ | async) as user; else loginTemplate">
+        <span class="navbar-text">
+            {{user}}
+          </span>
+          <a routerLink="/home" (click)="logout()">
+            <button class="nav-link btn">Log uit</button>
+          </a>
+    </div>
+    </div>
+  </nav>
+
+  <ng-template #loginTemplate>
+      <div class="d-flex login">
+        <a routerLink="/login">
+            <button class="nav-link btn">Log in</button>
+        </a>                       
+
+      </div>
+</ng-template>

@@ -1,0 +1,60 @@
+<header>
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-7 col-lg-6 col-xl-5 d-flex justify-content-center align-items-center">
+              <div class="card" *ngIf="!isLoading; else loading">
+                  <div class="card-body" *ngIf="(route$ | async) as route; else loadingOrError">
+                    <h2 class="card-title">Inschrijven voor {{ route.name }}</h2>
+                    <form [formGroup]="registration" (ngSubmit)="onSubmit()" *ngIf="(loggedInUser$ | async) as user; else loginTemplate">
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" formControlName="shirtBool" (change)="changeVisibility($event.target.checked)">
+                              <label class="form-check-label">Ik bestel ook een T-shirt</label>
+                            </div>
+                          </div>
+                          <div class="form-group" [hidden]="hideSizes">
+                            <label>Maat</label>
+                            <select class="form-control" formControlName="shirtSize">
+                              <option value="XS">XS</option>
+                              <option value="S">S</option>
+                              <option value="M">M</option>
+                              <option value="L">L</option>
+                              <option value="XL">XL</option>
+                            </select>
+                          </div>
+                          <a>
+                              <button class="btn" type="submit">Ga verder naar betaling</button>
+                          </a>
+                  </form>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+</header>
+
+<ng-template #loginTemplate>
+  <div>
+    <p class="p-1 mb-4">U moet ingelogd zijn om in te schrijven</p>
+    <a routerLink="/login">
+      <button class="btn mr-3">Log in</button>
+    </a>
+    <span>Nog geen account? 
+        <a routerLink="/register" class="ml-1">Registreer hier</a>
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #loadingOrError>
+  <div data-cy="appError" class="error" *ngIf="errorMessage; else loading">
+    Error loading the route: {{ errorMessage }}. <br />
+    Please try again later.
+  </div>
+</ng-template>
+<ng-template #loading>
+  <div class="row justify-content-center m-5">
+    <div class="spinnerContainer">
+        <mat-spinner></mat-spinner>
+      </div>
+  </div> 
+</ng-template>

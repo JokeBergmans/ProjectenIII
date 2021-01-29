@@ -1,0 +1,47 @@
+<div id="navbarPlaceholder"></div>
+<div *ngIf="showSucces"class="alert alert-success m-2" role="alert">
+    {{ succesMessage }}
+</div>
+<div *ngIf="showError"class="alert alert-danger m-2" role="alert">
+    {{ errorMessage }}
+</div>
+<h1 class="row justify-content-center display-4 m-5">Geplande wandelingen</h1>
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th style="width: 50%">Route naam</th>
+        <th style="width: 25%;">Start</th>
+        <th style="width: 25%">Acties</th>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngIf="routes$ | async as routes; else loadingOrError">
+            <tr *ngFor="let r of routes">
+                <td> {{ r.name }}</td>
+                <td> {{ r.start | date:'dd/MM/yyyy HH:mm' }} </td> 
+                <td>
+                    <button type="button" class="btn btn-dark mr-2" (click)="createQRcodes(r.id, r.name)">
+                        <i class="fa fa-qrcode fa-lg" aria-hidden="true"></i>
+                    </button>
+                    <button *ngIf="notBeforeToday(r.start)" (click)="deleteRoute(r.id)" class="btn btn-danger">
+                         <i class="fa fa-trash-o fa-lg"></i>
+                    </button>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+
+<ng-template #loadingOrError>
+    <mat-card data-cy="appError" class="error" *ngIf="errorMessage; else loading">
+        Error loading routes: {{ errorMessage }}. <br />
+        Please try again later.
+    </mat-card>
+</ng-template>
+<ng-template #loading>
+    <div class="row justify-content-center m-5">
+        <div class="spinnerContainer">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</ng-template>
